@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+   <ui:composition>
+        <h:form id="menuForm">
+            <p:menubar>
+                <p:menuitem value="#{myBundle.Home}" outcome="/index" icon="ui-icon-home"/>
+                <p:submenu label="#{myBundle.Maintenance}">
+                    <p:menuitem value="Department" icon="ui-icon-script"  outcome="/zdept/index" />
+                    <p:menuitem value="User Level Adm" icon="ui-icon-script"  outcome="/zuserLevelAdm/index" />
+                    <p:menuitem value="User Level Sys" icon="ui-icon-script"  outcome="/zuserLevelSys/index" />                 
+                    <p:menuitem value="User manager" icon="ui-icon-script"  outcome="/zuser/index" />
+                    <p:menuitem value="Privilege" icon="ui-icon-script"  outcome="/zprivilage/index" />
+                    <p:menuitem value="Status User" icon="ui-icon-script"  outcome="/zstatus/index" />
+                    <p:menuitem value="Status Document" icon="ui-icon-script"  outcome="/zstatusdoc/index" />
+                    <p:menuitem value="Tipe Document" icon="ui-icon-script"  outcome="/zdoctabeltipe/index" />  
+                    <p:menuitem value="Tabel Document" icon="ui-icon-script"  outcome="/zdoctabel/index" />
+                    <p:menuitem value="Ubah Password" icon="ui-icon-script" />
+                </p:submenu>
+                
+                 <p:submenu label="Master List...">
+                    <p:menuitem value="Manual" icon="ui-icon-folder-open" outcome="/zdept/index" />
+                  <p:menuitem value="Prosedur" icon="ui-icon-folder-open" outcome="/zdept/index" />
+                  <p:menuitem value="Reff Lokasi Kerja" icon="ui-icon-folder-open" outcome="/zdept/index" />
+                  <p:menuitem value="Document External" icon="ui-icon-folder-open" outcome="/zdept/index" />
+                </p:submenu>
+                     <p:menuitem value="Draft..." icon="ui-icon-suitcase" outcome="/application/Draft/index" />
+                     <p:menuitem value="Approval" icon="ui-icon-folder-open" outcome="/zdoc/index" />
+                     <p:menuitem value="Approved" icon="ui-icon-home" outcome="/zdoc/index" />
+                     <p:menuitem value="Release" icon="ui-icon-star"  />
+                     <p:menuitem value="History" icon="ui-icon-script"  />
+                     <p:submenu label="Reporting">
+                       <p:menuitem value="Master by Release Date" icon="ui-icon-print"  />
+                       <p:menuitem value="Report Status Doc" icon="ui-icon-print" />
+                       <p:menuitem value="Report ..." icon="ui-icon-print"  />
+                    </p:submenu>    
+                     <p:menuitem value="Debug..." icon="ui-icon-info" />
+                     <p:submenu>
+                         
+                     </p:submenu>  
+                     
+                    
+                     <f:facet name="options">                                
+                         <p:inputText placeholder="enter user id"/>
+                         <p:inputText placeholder="password"/>
+                         <p:commandButton value="login" icon="ui-icon-extlink"/>
+                     </f:facet>
+            </p:menubar>
+        </h:form>
+    </ui:composition>
+    
+    
+    
+ 
+</html>

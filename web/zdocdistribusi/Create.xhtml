@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ZdocdistribusiCreateDlg" widgetVar="ZdocdistribusiCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateZdocdistribusiTitle}" closeOnEscape="true">
+
+            <h:form id="ZdocdistribusiCreateForm">
+
+                <h:panelGroup id="display" rendered="#{zdocdistribusiController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateZdocdistribusiLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{zdocdistribusiController.selected.name}" title="#{myBundle.CreateZdocdistribusiTitle_name}" size="255" maxlength="255"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdocdistribusiLabel_tgldistribusi}" for="tgldistribusi" />
+                        <p:calendar id="tgldistribusi" pattern="MM/dd/yyyy HH:mm:ss" value="#{zdocdistribusiController.selected.tgldistribusi}" title="#{myBundle.CreateZdocdistribusiTitle_tgldistribusi}"  showOn="button"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdocdistribusiLabel_zaccept}" for="zaccept" />
+                        <p:inputText id="zaccept" value="#{zdocdistribusiController.selected.zaccept}" title="#{myBundle.CreateZdocdistribusiTitle_zaccept}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdocdistribusiLabel_zdocid}" for="zdocid" />
+                        <p:inputText id="zdocid" value="#{zdocdistribusiController.selected.zdocid}" title="#{myBundle.CreateZdocdistribusiTitle_zdocid}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdocdistribusiLabel_zuserid}" for="zuserid" />
+                        <p:selectOneMenu id="zuserid" value="#{zdocdistribusiController.selected.zuserid}"  converter="zuserConverter">
+                            <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{zuserController.items}"
+                                           var="zuseridItem"
+                                           itemValue="#{zuseridItem}"
+                                           itemLabel="#{zuseridItem.username.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{zdocdistribusiController.saveNew}" value="#{myBundle.Save}" update="display,:ZdocdistribusiListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ZdocdistribusiCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('ZdocdistribusiCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ZdoctabelCreateDlg" widgetVar="ZdoctabelCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateZdoctabelTitle}" closeOnEscape="true">
+
+            <h:form id="ZdoctabelCreateForm">
+
+                <h:panelGroup id="display" rendered="#{zdoctabelController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateZdoctabelLabel_namadocument}" for="namadocument" />
+                        <p:inputText id="namadocument" value="#{zdoctabelController.selected.namadocument}" title="#{myBundle.CreateZdoctabelTitle_namadocument}" size="255" maxlength="255"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdoctabelLabel_typeid}" for="typeid" />
+                        <p:inputText id="typeid" value="#{zdoctabelController.selected.typeid}" title="#{myBundle.CreateZdoctabelTitle_typeid}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdoctabelLabel_zdeptZdepid}" for="zdeptZdepid" />
+                        <p:inputText id="zdeptZdepid" value="#{zdoctabelController.selected.zdeptZdepid}" title="#{myBundle.CreateZdoctabelTitle_zdeptZdepid}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdoctabelLabel_zdocdept}" for="zdocdept" />
+                        <p:inputText id="zdocdept" value="#{zdoctabelController.selected.zdocdept}" title="#{myBundle.CreateZdoctabelTitle_zdocdept}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateZdoctabelLabel_zdoctabeltipeZdoctabeltipeid}" for="zdoctabeltipeZdoctabeltipeid" />
+                        <p:inputText id="zdoctabeltipeZdoctabeltipeid" value="#{zdoctabelController.selected.zdoctabeltipeZdoctabeltipeid}" title="#{myBundle.CreateZdoctabelTitle_zdoctabeltipeZdoctabeltipeid}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{zdoctabelController.saveNew}" value="#{myBundle.Save}" update="display,:ZdoctabelListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ZdoctabelCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('ZdoctabelCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
