@@ -40,9 +40,9 @@
                 <p:ajax event="contextMenu" update="@form:createButton @form:viewButton @form:editButton @form:deleteButton"/>
                 <p:ajax event="rowDblselect" onsuccess="document.getElementById('ZuserLevelSysListForm:viewButton').click();"/>
 
-                <p:column sortBy="#{item.zuserLevelSysId}" filterBy="#{item.zuserLevelSysId}">
+                <p:column  style="width:20px;" >
                     <f:facet name="header">
-                        <h:outputText value="#{myBundle.ListZuserLevelSysTitle_zuserLevelSysId}"/>
+                        <h:outputText value="id"/>
                     </f:facet>
                     <h:outputText value="#{item.zuserLevelSysId}"/>
                 </p:column>

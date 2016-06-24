@@ -72,6 +72,7 @@ public class Zuser implements Serializable {
     private Integer zuserleveladmZuserLevelAdmId;
     @Column(name = "ZUSERLEVELSYS_ZUSER_LEVEL_SYS_ID")
     private Integer zuserlevelsysZuserLevelSysId;
+/*
     @OneToMany(mappedBy = "zuserId")
     private Collection<Zdocrencanadist> zdocrencanadistCollection;
     @OneToMany(mappedBy = "zuserid")
@@ -84,7 +85,7 @@ public class Zuser implements Serializable {
     private Collection<Zprivilage> zprivilageCollection1;
     @OneToMany(mappedBy = "zusersZuserid")
     private Collection<ZdoclineZuser> zdoclineZuserCollection;
-
+*/
     public Zuser() {
     }
 
@@ -179,7 +180,7 @@ public class Zuser implements Serializable {
     public void setZuserlevelsysZuserLevelSysId(Integer zuserlevelsysZuserLevelSysId) {
         this.zuserlevelsysZuserLevelSysId = zuserlevelsysZuserLevelSysId;
     }
-
+/**
     @XmlTransient
     public Collection<Zdocrencanadist> getZdocrencanadistCollection() {
         return zdocrencanadistCollection;
@@ -233,7 +234,7 @@ public class Zuser implements Serializable {
     public void setZdoclineZuserCollection(Collection<ZdoclineZuser> zdoclineZuserCollection) {
         this.zdoclineZuserCollection = zdoclineZuserCollection;
     }
-
+*/
     @Override
     public int hashCode() {
         int hash = 0;

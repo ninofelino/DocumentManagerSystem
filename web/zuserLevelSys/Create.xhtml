@@ -16,7 +16,7 @@
                     <p:panelGrid columns="2" columnClasses="column">
 
                         <p:outputLabel value="#{myBundle.CreateZuserLevelSysLabel_name}" for="name" />
-                        <p:inputText id="name" value="#{zuserLevelSysController.selected.name}" title="#{myBundle.CreateZuserLevelSysTitle_name}" size="255" maxlength="255"/>
+                        <p:inputText id="name" value="#{zuserLevelSysController.selected.name}" title="#{myBundle.CreateZuserLevelSysTitle_name}" size="25" maxlength="255"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{zuserLevelSysController.saveNew}" value="#{myBundle.Save}" update="display,:ZuserLevelSysListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ZuserLevelSysCreateDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>

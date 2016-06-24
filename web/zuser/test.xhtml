@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="#{myBundle.ZuserTitle}"/>
+    </ui:define>
+
+    <ui:define name="body">
+
+        <p:dataTable id="datalist"
+                         value="#{zuserController.items}"
+                         lazy="false"
+                         rowKey="#{item.zuserid}"
+                         var="item"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{zuserController.selected}">
+                <!--
+                         To enable Lazy Loading, please copy/replace the following lines above,
+                         and be sure to replace the word HASH with the # symbol:
+                
+                         value="HASH{zuserController.lazyItems}"
+                         lazy="true"
+                         rowKey="HASH{item.zuserid}"  <<< Remove this line
+                -->
+
+
+                <p:ajax event="rowSelect"   update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:ZuserDataTableContextMenu"/>
+                <p:ajax event="rowUnselect" update="@form:createButton,@form:viewButton,@form:editButton,@form:deleteButton,@form:ZuserDataTableContextMenu"/>
+                <p:ajax event="contextMenu" update="@form:createButton @form:viewButton @form:editButton @form:deleteButton"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('ZuserListForm:viewButton').click();"/>
+
+                <p:column sortBy="#{item.zuserid}" filterBy="#{item.zuserid}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListZuserTitle_zuserid}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.zuserid}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.leveladmid}" filterBy="#{item.leveladmid}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListZuserTitle_leveladmid}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.leveladmid}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.levelsysid}" filterBy="#{item.levelsysid}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListZuserTitle_levelsysid}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.levelsysid}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.useremail}" filterBy="#{item.useremail}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListZuserTitle_useremail}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.useremail}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.username}" filterBy="#{item.username}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListZuserTitle_username}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.username}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.userpass}" filterBy="#{item.userpass}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListZuserTitle_userpass}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.userpass}"/>
+                </p:column>
+
+                <!--
+                                    <p:column sortBy="#{item.zactiveuser}" filterBy="#{item.zactiveuser}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListZuserTitle_zactiveuser}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.zactiveuser}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.zdeptZdepid}" filterBy="#{item.zdeptZdepid}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListZuserTitle_zdeptZdepid}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.zdeptZdepid}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.zdeptId}" filterBy="#{item.zdeptId}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListZuserTitle_zdeptId}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.zdeptId}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.zuserleveladmZuserLevelAdmId}" filterBy="#{item.zuserleveladmZuserLevelAdmId}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListZuserTitle_zuserleveladmZuserLevelAdmId}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.zuserleveladmZuserLevelAdmId}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.zuserlevelsysZuserLevelSysId}" filterBy="#{item.zuserlevelsysZuserLevelSysId}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListZuserTitle_zuserlevelsysZuserLevelSysId}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.zuserlevelsysZuserLevelSysId}"/>
+                                    </p:column>
+                -->
+
+            </p:dataTable>
+
+    </ui:define>
+
+</ui:composition>

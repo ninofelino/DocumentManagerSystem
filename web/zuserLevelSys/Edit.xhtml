@@ -19,7 +19,7 @@
                         <h:outputText id="zuserLevelSysId" value="#{zuserLevelSysController.selected.zuserLevelSysId}" />
 
                         <p:outputLabel value="#{myBundle.EditZuserLevelSysLabel_name}" for="name" />
-                        <p:inputText id="name" value="#{zuserLevelSysController.selected.name}" title="#{myBundle.EditZuserLevelSysTitle_name}" size="255" maxlength="255"/>
+                        <p:inputText id="name" value="#{zuserLevelSysController.selected.name}" title="#{myBundle.EditZuserLevelSysTitle_name}" size="25" maxlength="255"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{zuserLevelSysController.save}" value="#{myBundle.Save}" update="display,:ZuserLevelSysListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ZuserLevelSysEditDialog'));">
                         <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
